@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/tournament-printer/static/css/main.67161758.css",
-    "main.js": "/tournament-printer/static/js/main.978b5a01.js",
+    "main.js": "/tournament-printer/static/js/main.cd3ed196.js",
     "static/js/787.70281e36.chunk.js": "/tournament-printer/static/js/787.70281e36.chunk.js",
     "index.html": "/tournament-printer/index.html",
     "main.67161758.css.map": "/tournament-printer/static/css/main.67161758.css.map",
-    "main.978b5a01.js.map": "/tournament-printer/static/js/main.978b5a01.js.map",
+    "main.cd3ed196.js.map": "/tournament-printer/static/js/main.cd3ed196.js.map",
     "787.70281e36.chunk.js.map": "/tournament-printer/static/js/787.70281e36.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.67161758.css",
-    "static/js/main.978b5a01.js"
+    "static/js/main.cd3ed196.js"
   ]
 }
