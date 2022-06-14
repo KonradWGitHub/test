@@ -44,7 +44,7 @@ const BracketGenerator = (props) => {
               <div
                 className={
                   "div" +
-                  game.id +
+                  (Number(game.id) - Number(upperBracket[0].matches[0].id)) +
                   "-" +
                   numberOfContestants +
                   `${isUpper === "upper" ? "" : "-l"}`
