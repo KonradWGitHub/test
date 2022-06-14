@@ -38,7 +38,8 @@ const PopUp = (props) => {
   };
 
   const handleChange = (e) => {
-    setFormData((prevData) => ({ ...prevData, [e.target.id]: e.target.value }));
+    const { id, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [id]: value }));
   };
 
   return (
@@ -68,6 +69,7 @@ const PopUp = (props) => {
             className="popup-date"
             id="date"
             value={formData.date}
+            name="date"
             onChange={handleChange}
             spellCheck="false"
             autoComplete="off"

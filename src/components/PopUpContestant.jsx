@@ -9,7 +9,7 @@ const PopUpContestant = (props) => {
         value={score}
         onChange={handleChange}
         spellCheck="false"
-        placeholder="0"
+        placeholder={score}
         autoComplete="off"
       />
     </div>
