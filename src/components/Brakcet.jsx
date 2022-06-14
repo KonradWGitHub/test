@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { nanoid } from "nanoid";
 import axios from "axios";
 import { useParams, useSearchParams } from "react-router-dom";
@@ -17,6 +17,7 @@ const Bracket = () => {
   const { tournamentData, loading, pageNotFound } = state;
   const { id: tournamentId } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [token, setToken] = useState();
 
   useEffect(() => {
     dispatch({ type: ACTIONS.FETCH_DATA });
@@ -35,6 +36,8 @@ const Bracket = () => {
         dispatch({ type: ACTIONS.ERROR, error: err });
       })
       .then(() => {});
+
+    setToken(searchParams.get("token"));
   }, []);
 
   const updateTournamentData = (isUpper, round, id, FPscore, SPscore, date) => {
@@ -97,18 +100,21 @@ const Bracket = () => {
             {...tournamentData}
             updateTournamentData={updateTournamentData}
             isUpper={"upper"}
+            token={token}
           />
           <BracketGenerator
             key={nanoid()}
             {...tournamentData}
             updateTournamentData={updateTournamentData}
             isUpper={"lower"}
+            token={token}
           />
           <Finals
             key={nanoid()}
             {...tournamentData}
             updateTournamentData={updateTournamentData}
             isUpper={"finals"}
+            token={token}
           />
         </>
       ) : (

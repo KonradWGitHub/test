@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import Game from "./Game";
 
 const Finals = (props) => {
-  const { finals, isUpper, updateTournamentData } = props;
+  const { finals, isUpper, updateTournamentData, token } = props;
 
   const roundsBadge = (index) => {
     switch (index) {
@@ -37,6 +37,7 @@ const Finals = (props) => {
                 SPscore={game.secondTeamScore}
                 SPname={game.secondTeamName}
                 id={game.id}
+                token={token}
                 isUpper={isUpper}
                 updateTournamentData={updateTournamentData}
                 key={nanoid()}

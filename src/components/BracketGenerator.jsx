@@ -9,6 +9,7 @@ const BracketGenerator = (props) => {
     numberOfContestants,
     isUpper,
     updateTournamentData,
+    token,
   } = props;
   const bracket = isUpper === "upper" ? upperBracket : lowerBracket;
 
@@ -58,6 +59,7 @@ const BracketGenerator = (props) => {
                   SPscore={game.secondTeamScore}
                   SPname={game.secondTeamName}
                   id={game.id}
+                  token={token}
                   updateTournamentData={updateTournamentData}
                   isUpper={isUpper}
                   key={nanoid()}

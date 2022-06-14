@@ -6,7 +6,7 @@ import PopUp from "./PopUp";
 const Game = (props) => {
   const [popUp, setPopUp] = useState(false);
 
-  const { date, FPscore, FPname, SPscore, SPname } = props;
+  const { date, FPscore, FPname, SPscore, SPname, token } = props;
 
   function styleFPscore(FPscore, SPscore) {
     return FPscore < SPscore
@@ -48,7 +48,7 @@ const Game = (props) => {
           <span className="contestant-score">{SPscore}</span>
         </div>
       </div>
-      {popUp ? (
+      {popUp && token ? (
         <PopUp key={nanoid()} {...props} togglePopUp={togglePopUp} />
       ) : null}
     </>
