@@ -285,16 +285,16 @@ body {
 }
 
 /* Finals grid divs */
-.div7-f {
+.div6-f {
   grid-area: 2 / 1 / 3 / 2;
 }
-.div8-f {
+.div7-f {
   grid-area: 3 / 1 / 4 / 2;
 }
-.div13-f {
+.div12-f {
   grid-area: 2 / 2 / 4 / 3;
 }
-.div14-f {
+.div13-f {
   grid-area: 2 / 3 / 4 / 4;
 }
 .r-1-f {

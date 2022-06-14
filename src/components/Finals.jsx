@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import Game from "./Game";
 
 const Finals = (props) => {
-  const { finals, isUpper, updateTournamentData, token } = props;
+  const { finals, isUpper, updateTournamentData, token, upperBracket } = props;
 
   const roundsBadge = (index) => {
     switch (index) {
@@ -29,7 +29,14 @@ const Finals = (props) => {
                 <span>{roundsBadge(index)}</span>
               </div>
             )}
-            <div className={"div" + game.id + "-f"} key={nanoid()}>
+            <div
+              className={
+                "div" +
+                (Number(game.id) - Number(upperBracket[0].matches[0].id)) +
+                "-f"
+              }
+              key={nanoid()}
+            >
               <Game
                 date={game.date}
                 FPscore={game.firstTeamScore}
