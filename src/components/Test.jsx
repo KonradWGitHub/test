@@ -1,8 +1,14 @@
 import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const Test = () => {
+  const [params, setParams] = useSearchParams();
+
   useEffect(() => {
-    console.log(window.data);
+    alert("test");
+    alert(window.data);
+
+    console.log(params.get("token"));
   }, []);
 
   return (

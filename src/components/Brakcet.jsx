@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react";
 import { nanoid } from "nanoid";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 import tournamentDataReducer, {
   ACTIONS,
@@ -9,7 +9,6 @@ import tournamentDataReducer, {
 } from "../reducer/tournamentDataReducer";
 import BracketGenerator from "./BracketGenerator";
 import Loader from "./Loader";
-import Test from "./Test";
 import PageNotFound from "./PageNotFound";
 import Finals from "./Finals";
 
@@ -17,6 +16,7 @@ const Bracket = () => {
   const [state, dispatch] = useReducer(tournamentDataReducer, initialState);
   const { tournamentData, loading, pageNotFound } = state;
   const { id: tournamentId } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     dispatch({ type: ACTIONS.FETCH_DATA });
@@ -68,14 +68,6 @@ const Bracket = () => {
 
     dispatch({ type: ACTIONS.UPDATE_SCORE, data: j });
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InVzZXI0QGVtYWlsLmNvbSIsIm5iZiI6MTY1NTIwOTAyOSwiZXhwIjoxNjU1MjI3MDI5LCJpYXQiOjE2NTUyMDkwMjl9.Xx_hbIUVoNNuheoYFkiB6361KJwT-POsYEoGQzSU3_E",
-      },
-    };
-
     axios({
       method: "post",
       url: `http://jaqbklo.somee.com/api/tournament/matchresult/${id}`,
@@ -84,8 +76,7 @@ const Bracket = () => {
         Accept: "application/json",
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InVzZXI0QGVtYWlsLmNvbSIsIm5iZiI6MTY1NTIwOTAyOSwiZXhwIjoxNjU1MjI3MDI5LCJpYXQiOjE2NTUyMDkwMjl9.Xx_hbIUVoNNuheoYFkiB6361KJwT-POsYEoGQzSU3_E",
+        Authorization: `Bearer ${searchParams.get("token")}`,
       },
     })
       .then((res) => {
@@ -121,7 +112,7 @@ const Bracket = () => {
           />
         </>
       ) : (
-        <Test />
+        <Loader />
       )}
     </>
   );
